@@ -1,72 +1,39 @@
-# Assignment 2: Javascript Exercises Next Module
+# Assignment 2: Ruby Exercises Next Module
 
-## Question 1: Ruby Hashes
-Implement a Ruby like Hash in Javascript. You will be able to use Object as a base to get most of the behaviour.
+You have two days to complete this assignment. Please do it individually, put it on Github and have your buddy TA mark it for you.
 
-Name the class Hash.
-Its constructor will take an object as argument.
-It should add support for the following ruby Hash methods as prototype methods:
-.empty (name it .isEmpty in Javascript)
-.merge (merges both hashes into a new hash and returns it)
-.hasKey (checks if key is in hash)
-.invert (returns a new Hash with keys & their values and vice versa)
-.inspect(display the hash ruby style as a string)
-.keys (returns all hash keys in an array)
-.values (returns all hash values in an array)
-All methods that return a hash must return a new Hash object.
-Don't overthink this. Javascript Objects and Ruby Hashes are similar.
+## Question 1
+Implement the following code in Ruby: Create a module called HelperMethods that include a method called titleize that does the following: it takes in a string and returns the string back after capitalizing each word in that string. For example, if you pass to the method a string "hello world" you should get back "Hello World". The methods should not capitalize the following words: in, the, of, and, or, from. Then write a piece of code to demonstrate the difference between include and extend in using Ruby modules with classes to include methods. Make sure to demonstrate calling the titleize methods with your code.
 
-Example usage:
+## Question 2
+Build a Ruby class called Book. Objects of the Book class must have two attributes: title and chapters. Objects must have two methods: add_chapter and chapters. The add_chapter method adds a chapter by giving it a title. The chapters method should display the number of chapters and lists all the chapters as in:
 ```
-let emptyHash = new Hash({});
-let hash = new Hash({a: 1, b: 2, c: 3});
-
-hash.isEmpty() // returns false
-emptyHash.isEmpty() // returns true
-
-let merged = hash.merge(new Hash({bob: 'yo', jane: 'ya'}));
-// returns Hash {a: 1, b: 2, c: 3, bob: 'yo', jane: 'ya'}
-// should not mutate original hash
-
-merged !== hash // should be true
-
-hash.hasKey('a') // returns true
-hash.hasKey('bob') // returns false
-merged.hasKey('bob') // returns true
-
-// Values will have to made into strings
-hash.invert() // returns Hash {'1':'a', '2':'b', '3':'c'}
-
-hash.inspect() // returns "{'a' => 1, 'b' => 2, 'c' => 3}"
-
-hash.keys() // returns ['a', 'b', 'c']
-hash.values() // returns [1, 2, 3]
+book = Book.new
+book.title = "My Awesome Book"
+book.add_chapter("My Awesome Chapter 1")
+book.add_chapter("My Awesome Chapter 2")
+book.chapters
+# This should print:
+# Your book: My Awesome Book has 2 chapters:
+# 1. My Awesome Chapter 1
+# 2. My Awesome Chapter 2
 ```
 
-## Question 2: Stacks & Queues
-Implement a Stack and a Queue data structure in Javascript.
+## Question 3
+Write a Ruby method called: is_prime. The function must take a number n and it should return true or false whether the argument passed (n) is a prime number or not. A prime number is a number that is divisible only by 1 and itself.
 
-Explain the difference between a stack and a queue.
-Write a Javascript constructor called Stack and another Javascript class called Queue.
-Each should have a prototype method, add, that adds an element to the stack or queue and returns it.
-Each should have a prototype method, remove, that removes an element from the stack or queue and returns it.
-Make sure that each constructor/class behaves properly as per definitions of stacks and queues.
-
-## Question 3: Digit Product Sequence
-A digit product sequence is a type of sequence where the next number in the sequence is calculated by adding the product of each digit of the number and the number.
-
-For example:
+## Question 4
+Given a ruby Hash that looks like this:
 ```
-1, 2, 4, 8, 16, 22, 26, 38, 62
-The above are the first 9 numbers of the sequence.
+var major_cities = {BC: ["Vancouver", "Victoria", "Prince George"], AB: ["Edmonton", "Calgary"]}
 ```
-
-Write a function, digitProduct, that takes a number, n, as an argument and calculates the nth number in the sequence.
+Write a piece of code that loops through the object and prints the following to the console:
 ```
-digitProduct(3) // returns 4
-digitProduct(6) // returns 22
-digitProduct(9) // returns 62
+BC has 3 main cities: Vancouver, Victoria, Prince George
+AB has 2 main cities: Edmonton, Calgary
 ```
-Implement it iteratively
-Implement it recursively
-Benchmark the results
+[Stretch]: Make sure that there is an and before the last one:
+```
+BC has 3 main cities: Vancouver, Victoria and Prince George
+AB has 2 main cities: Edmonton and Calgary
+```
